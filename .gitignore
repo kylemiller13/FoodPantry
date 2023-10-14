@@ -1,0 +1,100 @@
+# Ignore system files
+*.log
+*.ini
+*.lnk
+*.bak
+*.regtrans-ms
+*.blf
+*.pdf
+*.png
+*.ipynb
+*.txt
+.desktop
+
+# Ignore directories
+.android/
+.cache/
+.conda/
+.config/
+.condarc
+.continuum/
+.cryengine/
+.gitconfig
+.ipynb_checkpoints/
+.ipython/
+.jupyter/
+.lesshst
+.matplotlib/
+.node_repl_history
+.openjfx/
+.stacher/
+3D Objects/
+AppData/
+Contacts/
+Creative Cloud Files/
+DataGrip Projects/
+DataGripProjects/
+Documents/
+Downloads/
+Dropbox/
+Favorites/
+Game Builds/
+Lab 1/
+Links/
+MicrosoftEdgeBackups/
+Music/
+Notebooks/
+OneDrive/
+CIS/
+Fall '21/
+Fall '22/
+Assignments/
+Project_Directory.png
+Reference Materials/
+Screenshots/
+CIS 276 - Advanced SQL/
+CIS 284C Cybersecurity Concepts/
+Important Info/
+PCC Employment Proof.docx
+PCC Pay Check.png
+PCCEmployment.png
+PSR8 PSR7 .txt
+ProofofIncome.png
+QRC/
+Spring '22/
+Spring '23/
+Summer '22/
+Summer '23/
+Winter '22/
+Winter '23/
+desktop.ini
+Postman.lnk
+Security Tools/
+.desktop
+/Documents/
+/Downloads/
+Personal Vault.lnk
+/Pictures/
+VirusTotal.docx
+/desktop.ini
+/PycharmProjects/
+Saved Games/
+Searches/
+Site Design/
+Tracing/
+Untitled.ipynb
+Videos/
+WebstormProjects/
+background.js
+background.js.bak
+bluej/
+git/
+icon.png
+imageDBbackup.js
+manifest.json
+ntuser.dat.LOG1
+ntuser.dat.LOG2
+ntuser.ini
+popup.html
+popup.html.bak
+source/
