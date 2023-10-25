@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="../Logic/logs.js"></script>
 </head>
 
 <body>
@@ -17,129 +18,29 @@
     <div>
         <form method="post" class="log_search">
             <div class="split-1-4-1-4-1-1">
-                <label for="from">Starting on:</label><input type="date" class="date_button" name="from">
-                <label>Ending on:</label><input type="date" class="date_button">
-                <input type="button" class="button" Value="Search">
-                <input type="button" class="button" Value="Show All">
+                <label for="start_date">Starting on:</label><input type="date" class="date_button" name="from" id="start_date">
+                <label>Ending on:</label><input type="date" class="date_button" id="end_date">
+                <input type="button" class="button" Value="Search" id="search_button">
+                <input type="button" class="button" Value="Show All" id="show_all_button">
             </div>
 
         </form>
         <main>
 
             <div class="results">
-                <p>Showing all</p>
+                <p id="dates_showing">Showing all</p>
                 <table>
-                    <tr>
-                        <th>Subject</th>
-                        <th>Date</th>
-                        <th>Sent By</th>
-                        <th>Sent To</th>
-                    </tr>
-                    <tr>
-                        <td>Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr class="selected">
-                        <td>Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" class="message_body">
-                            Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisi vitae suscipit tellus mauris a. Non odio euismod lacinia at quis risus sed. Blandit libero volutpat sed cras. Consectetur adipiscing elit duis tristique sollicitudin. Viverra suspendisse potenti nullam ac tortor. Morbi blandit cursus risus at ultrices mi tempus imperdiet nulla. Ornare arcu odio ut sem nulla pharetra diam sit. Neque egestas congue quisque egestas diam in arcu cursus euismod. Leo urna molestie at elementum eu facilisis sed. Egestas fringilla phasellus faucibus scelerisque eleifend. Sed arcu non odio euismod lacinia at. Vitae proin sagittis nisl rhoncus mattis. Donec massa sapien faucibus et molestie ac feugiat sed lectus. Viverra adipiscing at in tellus integer.<br>
-
-                            Consequat interdum varius sit amet mattis vulputate. Ut venenatis tellus in metus vulputate eu scelerisque. Quam nulla porttitor massa id neque aliquam vestibulum morbi. Nunc consequat interdum varius sit amet mattis vulputate enim. Sapien faucibus et molestie ac feugiat sed. Felis eget velit aliquet sagittis id consectetur. Orci ac auctor augue mauris augue neque gravida in fermentum. Enim eu turpis egestas pretium aenean pharetra. Sit amet aliquam id diam maecenas ultricies mi eget. Eget sit amet tellus cras adipiscing enim eu turpis egestas. Facilisis leo vel fringilla est ullamcorper. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Senectus et netus et malesuada fames ac turpis. Magna fermentum iaculis eu non diam phasellus.<br><br>
-                            Morbi tincidunt augue interdum velit.<br>
-                            Lobortis
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>much longer Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>longer Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>much longer Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>longer Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>Sample Subject</td>
-                        <td>10/10/2023</td>
-                        <td>User Name</td>
-                        <td>500</td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Sent By</th>
+                            <th>Subscribers Notified</th>
+                        </tr>
+                    </thead>
+                    <tbody id="result_table">
+                    </tbody>
                 </table>
             </div>
 

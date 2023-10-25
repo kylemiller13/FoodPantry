@@ -172,16 +172,6 @@ p {
     border: 1px solid green;
 }
 
-.message_body {
-    background-color: floralwhite;
-    padding: 1em;
-    margin: 0 0;
-    border-left: 1px solid green;
-    border-right: 1px solid green;
-    line-height: 1.3em;
-    text-align: left;
-}
-
 li {
     margin: .3em 0;
     padding: .75em;
@@ -225,6 +215,8 @@ button {
 
 table {
     border-collapse: separate;
+    width: 100%;
+    overflow: none;
 }
 
 th, td {
@@ -232,9 +224,23 @@ th, td {
     border: 1px solid green;
     border-right: none;
     border-left: none;
-    border-top:none;
+    border-bottom:none;
     background-color: white;
     text-align: center;
+}
+
+
+
+.message_body {
+    background-color: floralwhite;
+    color: dimgrey;
+    border-top: 1px solid lightgrey;
+    padding: 1em;
+    margin: 0 0;
+    border-left: 1px solid green;
+    border-right: 1px solid green;
+    line-height: 1.3em;
+    text-align: left;
 }
 
 th {
