@@ -1,12 +1,17 @@
 <?php
-$receiver = "millerkyle85@gmail.com";
-$subject = "Email Test via PHP using Localhost";
-$body = "Hi, there...This is a test email sent from Localhost.";
-$sender = "From: kyle.miller18@pcc.edu";
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $receiver = "millerkyle85@gmail.com";
+    $subject = $_POST["subject"];
+    $body = $_POST["body"];
+    $sender = "From: kyle.miller18@pcc.edu";
 
-if (mail($receiver, $subject, $body, $sender)) {
-    echo "Email sent successfully to $receiver";
-} else {
-    echo "Sorry, failed while sending mail!";
+    if (mail($receiver, $subject, $body, $sender)) {
+        echo "success";
+    } else {
+        echo "error";
+        $error_message = error_get_last();
+        error_log("Email sending error: " . print_r($error_message, true));
+    }
 }
 ?>
+

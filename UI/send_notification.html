@@ -6,21 +6,66 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <main>
         <h1>Send a Notification</h1>
-        <form method="post">
-                    <label for="subject">Subject:</label><input type="text" name="subject" id="subject">
-            <label for="body">Body:</label><textarea class="body" rows="8" id="body"></textarea>
-                    <div class="split-1-1">
-                        <input class="button" type="button" value="Clear">
-                        <input class="button" type="submit" value="Send">
-                    </div>
+        <form method="post" action="../Data/send_email.php" onsubmit="submitForm(event)">
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" id="subject" required> 
+            <label for="body">Body:</label>
+            <textarea name="body" class="body" rows="8" id="body" required></textarea> 
+            <div class="split-1-1">
+                <input class="button" type="button" value="Clear">
+                <input class="button" type="submit" value="Send"> 
+            </div>
+            <div id="notification" style="display: none;"></div>
         </form>
     </main>
+    <script>
+         // Add an event listener to the "Clear" button
+        const clearButton = document.querySelector('.button[value="Clear"]');
+        clearButton.addEventListener('click', function () {
+            document.getElementById('subject').value = ''; // Clear the subject field
+            document.getElementById('body').value = ''; // Clear the body field
+        });
+
+        function submitForm(event) {
+            event.preventDefault(); // Prevent the default form submission
+    
+            const form = event.target;
+            const formData = new FormData(form);
+    
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "../Data/send_email.php", true);
+    
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        const response = xhr.responseText;
+                        const notification = document.getElementById("notification");
+    
+                        if (response.trim() === "success") {
+                            notification.textContent = "Email sent successfully!";
+                            notification.style.color = "green";
+                        } else {
+                            notification.textContent = "Failed to send email!";
+                            notification.style.color = "red";
+                            
+                        }
+    
+                        notification.style.display = "block";
+                        console.log(xhr.responseText);
+                    }
+                }
+            };
+    
+            xhr.send(formData);
+        }
+    </script>
 </body>
+
 
 </html>
