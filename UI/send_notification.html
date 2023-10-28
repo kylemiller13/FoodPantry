@@ -18,10 +18,9 @@
             <label for="body">Body:</label>
             <textarea name="body" class="body" rows="8" id="body" required></textarea> 
             <div class="split-1-1">
-                <input class="button" type="button" value="Clear">
                 <input class="button" type="submit" value="Send"> 
+                <input class="button" type="button" value="Clear">
             </div>
-            <div id="notification" style="display: none;"></div>
         </form>
     </main>
     <script>
@@ -45,19 +44,13 @@
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
                         const response = xhr.responseText;
-                        const notification = document.getElementById("notification");
     
-                        if (response.trim() === "success") {
-                            notification.textContent = "Email sent successfully!";
-                            notification.style.color = "green";
+                        if (response.trim() === "Email sent successfully!") {
+                            alert("Email sent successfully!");
                         } else {
-                            notification.textContent = "Failed to send email!";
-                            notification.style.color = "red";
-                            
+                            alert("Failed to send email");
                         }
-    
-                        notification.style.display = "block";
-                        console.log(xhr.responseText);
+                        console.log(response);
                     }
                 }
             };
