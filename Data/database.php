@@ -46,7 +46,7 @@ class Database
         // Insert failed
         return false;
     }
-}
+  }
 
 }
 

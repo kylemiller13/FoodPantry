@@ -1,7 +1,9 @@
 <?php
 require 'Database.php'; 
 
+//Checks  if the HTTP request method is POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // track whether the email sending process is successful or not.
     $success = true;
     
     // Function to send an email to a single recipient
@@ -31,11 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         if ($success) {
-            
-            $sent_at = date('Y-m-d H:i:s'); // Use the current date and time
+            //records the current date and time
+            $sent_at = date('Y-m-d H:i:s'); 
+            //counts the number of subscribers (email addresses) and stores in the $number_of_subscribers
             $number_of_subscribers = count($users); 
 
-            // Call the insert_notification method
+            // Call the insert_notification method to insert a notification record into the database. 
             if (Database::insert_notification($senderId, $sent_at, $number_of_subscribers, $subject, $body)) {
                 echo "Email sent successfully!";
             } else {
