@@ -241,6 +241,8 @@ th, td {
     border-right: 1px solid green;
     line-height: 1.3em;
     text-align: left;
+    width: 100%;
+    cursor: pointer;
 }
 
 th {
@@ -283,4 +285,8 @@ th:last-child {
 
 .log_search input {
     max-width: 200px;
+}
+
+i {
+    font-style: italic;
 }
