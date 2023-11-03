@@ -35,6 +35,14 @@
             event.preventDefault(); // Prevent the default form submission
     
             const form = event.target;
+            const subject = document.getElementById('subject').value;
+            const body = document.getElementById('body').value;
+            
+            if (subject.trim() === '' || body.trim() === '') {
+                alert("Please fill out both Subject and Body fields before sending the email.");
+                return;
+            }
+
             const formData = new FormData(form);
     
             const xhr = new XMLHttpRequest();
