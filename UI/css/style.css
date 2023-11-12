@@ -25,7 +25,7 @@ time, mark, audio, video {
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+/* footer*/ header, hgroup, menu, nav, section {
     display: block;
 }
 body {
@@ -55,30 +55,47 @@ div, article, aside, details, figcaption, figure, footer, header, hgroup, menu, 
 =========================================================================*/
 
 body {
-    background-color: 	rgb(212, 247, 224);
+    /* background-color: 	rgb(212, 247, 224); */
+    /* background-color: rgb(213,213,213); */
     font-family: 'Roboto', sans-serif;
+    background-image: url('../images/pawprints-teal.png');
+    background-size: cover; 
+    background-repeat: no-repeat;
 }
 
 main {
     max-width: 1000px;
     margin: 0 auto;
-    background-color: rgb(212, 247, 224);
-    color: dimgrey;
+    /* background-color: rgb(212, 247, 224); */
+    /* background-color: rgb(213,213,213); */
+    /* color: dimgrey; */
+    color: black;
     display: block;
     padding: 1em 2em 1em 2em;
 }
 
 h1 {
-    font-size: 2em;
+    /* font-size: 2em; */
     text-align: center;
     margin: 1.5em;
-    color: darkgreen;
+    /* color: darkgreen; */
+    color: black;
+
+
+    /* add bold*/
+    font-size: 2.5em;
+    font-weight: bold;
 }
 
 h2 {
-    font-size: 1.5em;
+    /* font-size: 1.5em; */
     text-align: center;
     margin: 1.3em;
+
+
+    /* add bold*/
+    font-size: 1.8em;
+    font-weight: bold;
 }
 
 p {
@@ -109,10 +126,11 @@ input, label {
 
 input, textarea {
     width: 100%;
-    border-radius: .5em;
+    /* border-radius: .5em; */
     border: 1px solid dimgrey;
     padding: .5em .5em;
     resize: none;
+    font-size: 1em;
 }
 
 p {
@@ -125,13 +143,17 @@ p {
     margin: 1em auto;
     display: block;
     max-width: 200px;
-    background-color: darkseagreen;
+    background-color: rgb(0,128,153);
     color: white;
     font-size: 1em;
 }
 
+.button:hover {
+    background-color: rgb(0, 96, 115); 
+}
+
 .date_button {
-     padding: .5em 1.5em;
+    padding: .5em 1.5em;
     text-align: center;
     margin: 1em auto;
     display: block;
@@ -140,7 +162,7 @@ p {
 }
 
 .button:active {
-    color: darkseagreen;
+    color: rgb(0,128,153);
     background-color: cornsilk;
 }
 
@@ -277,4 +299,14 @@ th:last-child {
 
 .log_search input {
     max-width: 200px;
+}
+
+footer {
+    background-color: rgb(0, 128, 153); 
+    color: white !important;
+    text-align: center;
+    padding: 1em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
