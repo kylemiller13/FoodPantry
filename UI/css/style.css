@@ -309,7 +309,10 @@ th:last-child {
     max-width: 200px;
 }
 
-<<<<<<<< HEAD:UI/css/style.css
+i {
+    font-style: italic;
+}
+
 footer {
     background-color: rgb(0, 128, 153); 
     color: white !important;
@@ -318,8 +321,4 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-========
-i {
-    font-style: italic;
->>>>>>>> origin/log-database:UI/style.css
 }
