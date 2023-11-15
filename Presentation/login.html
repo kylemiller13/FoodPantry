@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <title>
-  Login to Existing Account
- </title>
+ <title>Login to Existing Account</title>
  <meta charset="utf-8"/>
  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
@@ -11,24 +9,30 @@
  <script src="signup.js"></script>
 </head>
 <body>
+<!-- Header: Contains logo, title, and possible navigation bar -->
+<header>
+ <h2>Food Pantry Alerts System</h2>
+ <!-- Navigation Bar: Once the site has multiple pages -->
+ <!-- <nav>
+     <ul>
+         <li><a href="index.html">Home</a></li>
+         <li><a href="about.html">About</a></li>
+         <li><a href="services.html">Services</a></li>
+         <li><a href="contact.html">Contact</a></li>
+     </ul>
+ </nav> -->
+</header>
+
 <main>
- <h1>
-  Login to Food Pantry Alerts Account
- </h1>
- <p>
-  Login in using the Username or E-mail you Registered With
- </p>
+ <h1>Login to Food Pantry Alerts Account</h1>
+ <p>Login in using the Username or E-mail you Registered With</p>
  <form action="../Logic/login.php" method="post" onsubmit="return validateLoginForm();">
-  <label for="email_username">
-   Username or E-mail:
-  </label>
-  <input id="email_username" name="email_username" type="text"/>
+  <label for="email_username">Username or E-mail:</label>
+  <input id="email_username" name="email_username" type="text" aria-label="Email Username" aria-describedby="email_usernameError"/>
   <div id="email_usernameError" class="error-message"></div>
 
-  <label for="password">
-   Password:
-  </label>
-  <input id="password" name="password" type="password"/>
+  <label for="password">Password:</label>
+  <input id="password" name="password" type="password" aria-label="Password" aria-describedby="passwordError"/>
   <div id="passwordError" class="error-message"></div>
 
   <div class="split-1-1">
@@ -36,9 +40,12 @@
    <input class="button" type="reset" value="Clear"/>
   </div>
  </form>
- <a href="register.html">
-  Don't have an account? Click here to register.
- </a>
+ <a href="register.html">Don't have an account? Click here to register.</a>
 </main>
+
+<!-- Footer: Typically contains copyright, contact information, or relevant links -->
+<footer>
+ <p>&copy; 2023 Food Pantry Alerts. All rights reserved.</p>
+</footer>
 </body>
 </html>

@@ -4,10 +4,16 @@ $feedback = $feedback ?? 'No feedback provided.';
 $feedbackType = $feedbackType ?? '';
 $feedbackStatus = $feedbackStatus ?? '';
 
+// Define URLs for redirection or navigation
+$loginUrl = '../Presentation/login.html'; // Adjust if necessary
+$homeUrl = 'future_page.php'; // URL of the homepage or dashboard after login
+
 // Start of HTML structure
 echo "<!DOCTYPE html>
 <html lang='en'>
 <head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Status</title>
     <link href='../Presentation/style.css' rel='stylesheet' type='text/css'/>
 </head>
@@ -15,23 +21,22 @@ echo "<!DOCTYPE html>
 <main>
     <h1>Status</h1>";
 
-// Display the feedback message (common to all conditions)
-echo "<p>$feedback</p>";
+// Display the feedback message
+echo "<p class='" . ($feedbackStatus === 'success' ? 'success-message' : 'error-message') . "'>$feedback</p>";
 
-// Check for the type of feedback and display the appropriate message
+// Conditional feedback based on the type and status
 if ($feedbackType === 'register' && $feedbackStatus === 'success') {
-    // Show link to login page for successful registration
-    echo "<p><a href='../Presentation/login.html'>Login to your account</a></p>"; // Adjust the path if necessary
+    echo "<p><a href='$loginUrl'>Login to your account</a></p>";
 } elseif ($feedbackType === 'login' && $feedbackStatus === 'success') {
-    // Show the "Redirecting..." message only for successful login
-    echo "<p>Redirecting...</p>";
-    // Uncomment the following line if you want to automatically redirect after a delay
-    // echo "<script>setTimeout(function() { window.location.href = 'future_page.php'; }, 2000);</script>";
+    echo "<p>Redirecting to your account...</p>";
+    echo "<script>setTimeout(function() { window.location.href = '$homeUrl'; }, 3000);</script>";
 }
 
-// Link to go back
-echo "<p><a href='../Presentation/login.html'>Go Back</a></p>
-</main>
+// Link to go back (useful for error scenarios)
+if ($feedbackStatus !== 'success') {
+    echo "<p><a href='$loginUrl'>Go Back</a></p>";
+}
+
+echo "</main>
 </body>
 </html>";
-
