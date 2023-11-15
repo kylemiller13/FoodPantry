@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Review Logs</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="../Logic/logs.js"></script>
+</head>
+
+<body>
+    <h1>Message History</h1>
+    <div>
+        <form method="post" class="log_search">
+            <div class="split-1-4-1-4-1-1">
+                <label for="start_date">Starting on:</label><input type="date" class="date_button" name="from" id="start_date">
+                <label>Ending on:</label><input type="date" class="date_button" id="end_date">
+                <input type="button" class="button" Value="Search" id="search_button">
+                <input type="button" class="button" Value="Show All" id="show_all_button">
+            </div>
+
+        </form>
+        <main>
+
+            <div class="results">
+                <p id="dates_showing">Showing all</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Sent By</th>
+                            <th>Subscribers Notified</th>
+                        </tr>
+                    </thead>
+                    <tbody id="result_table">
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+</body>
+
+</html>
