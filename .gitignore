@@ -1,0 +1,15 @@
+# Ignore the vendor folder
+/vendor
+
+# Ignore PHPUnit cache file
+.phpunit.result.cache
+
+# Ignore Composer files
+composer.json
+composer.lock
+
+# Ignore PHPUnit Phar file
+phpunit.phar
+
+# Ignore PHPUnit configuration file
+phpunit.xml
