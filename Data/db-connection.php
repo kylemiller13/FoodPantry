@@ -21,7 +21,12 @@ class Database {
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        return $result;
+        $templateList = [];
+
+        foreach ($result as $template) {
+            $templateList[] = new Template($template);
+        }
+        return $templateList;
     }
 
     public static function update_template($template_id, $template_name, $template_content, $template_type) {
@@ -35,14 +40,11 @@ class Database {
         $statement->bindValue(':template_type', $template_type);
         $statement->execute();
 
-        $returnedQuery = "SELECT * FROM EmailTemplate WHERE id = :template_id";
-        $returnedStatement = self::$db->prepare($returnedQuery);
-        $returnedStatement->bindValue(':template_id', $template_id);
-        $returnedStatement->execute();
-
-        $result = $returnedStatement->fetchAll(PDO::FETCH_ASSOC);
-
-        return $result;
+        if ($statement->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static function delete_template($template_id) {
@@ -85,8 +87,6 @@ class Database {
 
         return $result;
     }
-
-
 }
 
 
