@@ -55,4 +55,8 @@ class Log implements JsonSerializable
             
         ];
     }
+
+    public static function get_logs($start_date, $end_date) {
+        return Log_Database::get_logs($start_date, $end_date);
+    }
 }
