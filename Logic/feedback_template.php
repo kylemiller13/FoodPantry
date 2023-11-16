@@ -5,7 +5,7 @@ $feedbackType = $feedbackType ?? '';
 $feedbackStatus = $feedbackStatus ?? '';
 
 // Define URLs for redirection or navigation
-$loginUrl = '../Presentation/login.html'; // Adjust if necessary
+$loginUrl = '../UI/login.html'; // Adjust if necessary
 $homeUrl = 'future_page.php'; // URL of the homepage or dashboard after login
 
 // Start of HTML structure
@@ -15,7 +15,7 @@ echo "<!DOCTYPE html>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Status</title>
-    <link href='../Presentation/style.css' rel='stylesheet' type='text/css'/>
+    <link href='../UI/css/style.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
 <main>

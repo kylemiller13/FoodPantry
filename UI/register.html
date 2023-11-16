@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Sign up for Alerts</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+    <link href="../UI/css/style.css" rel="stylesheet" type="text/css"/>
+    <script src="../Logic/signup.js"></script>
 </head>
-
 <body>
-    <main>
-        <h1>Subscribe to Food Pantry Alerts</h1>
-        <p>Subscribe for the latest updates regarding food availability and specials</p>
-        <form method="post">
-                    <label for="name">Name:</label><input type="text" name="name" id="name">
-                    <label for="username">Username:</label><input type="text" name="email" id="username">
-                    <label for="email">E-mail:</label><input type="text" name="email" id="email">
-                    <label for="password">Password:</label><input type="text" id="password">
-                    <label for="confirm_password">Confirm Password:</label><input type="text" id="confirm_password">
-                    <div class="split-1-1">
-                            <input class="button" type="button" value="Clear">
-                            <input class="button" type="submit" value="Register">
-                    </div>
-        </form>
-        <a href="login.html">Already have an account? Click here to login.</a>
-    </main>
-</body>
+<!-- Header: Can contain a logo, a title, and possibly a navigation bar -->
+<header>
+    <h2>Food Pantry Alerts System</h2>
+    <!-- Navigation Bar: Include if your site has multiple pages -->
+    <!-- ... -->
+</header>
 
+<main>
+    <h1>Subscribe to Food Pantry Alerts</h1>
+    <p>Subscribe for the latest updates regarding food availability and specials</p>
+    <form action="../Logic/register.php" method="post" onsubmit="return validateForm();">
+        <label for="name">Name:</label>
+        <input id="name" name="name" type="text"/>
+        <div id="nameError" class="error-message"></div>
+
+        <label for="username">Username:</label>
+        <input id="username" name="username" type="text"/>
+        <div id="usernameError" class="error-message"></div>
+
+        <label for="email">E-mail:</label>
+        <input id="email" name="email" type="email"/>
+        <div id="emailError" class="error-message"></div>
+
+        <label for="password">Password:</label>
+        <input id="password" name="password" type="password"/>
+        <div id="passwordError" class="error-message"></div>
+
+        <label for="confirm_password">Confirm Password:</label>
+        <input id="confirm_password" name="confirm_password" type="password"/>
+        <div id="confirm_passwordError" class="error-message"></div>
+
+        <div class="split-1-1">
+            <input class="button" type="submit" value="Register"/>
+            <input class="button" type="reset" value="Clear"/>
+        </div>
+    </form>
+    <a href="login.html">Already have an account? Click here to login.</a>
+</main>
+</body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-namespace services;
+namespace Data\services;
 
 class PasswordValidator {
 
@@ -48,7 +48,7 @@ class PasswordValidator {
      * @return bool
      */
     public function validateAgainstCommonPasswords(string $password): bool {
-        $commonPasswords = ['password', '123456', 'qwerty']; // This should be a more comprehensive list
+        $commonPasswords = ['password', '123456', 'qwerty']; // add to this
         return !in_array($password, $commonPasswords, true);
     }
 
@@ -79,5 +79,5 @@ class PasswordValidator {
         return 'Password is strong.';
     }
 
-    // Additional methods
+    // Add methods
 }

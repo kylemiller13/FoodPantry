@@ -62,8 +62,8 @@ class Log_Database
             $stmt->execute([
                 ":start_date"=>$start_date
             ]);
-        };
-        
+        }
+
         $logs = $stmt->fetchALL(PDO::FETCH_ASSOC);
         $logList = [];
         foreach ($logs as $log) {
