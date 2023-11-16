@@ -1,6 +1,8 @@
 <?php
 
-class Database
+namespace Data;
+use PDO;
+class Database_Connection
 {
   const DB_SERVER = "cisdbss.pcc.edu";
   const DB_DATABASE = "Wise_Horses";
@@ -12,26 +14,26 @@ class Database
 
   private static $db = NULL;
   private static function connect(){
-    if(empty(Database::$db)){
-      Database::$db = new PDO(
-        "sqlsrv:Server=" . Database::DB_SERVER . ";Database=" . Database::DB_DATABASE,
-        Database::DB_USER,
-        Database::DB_PASSWORD
+    if(empty(Database_Connection::$db)){
+        Database_Connection::$db = new PDO(
+        "sqlsrv:Server=" . Database_Connection::DB_SERVER . ";Database_Connection=" . Database_Connection::DB_DATABASE,
+            Database_Connection::DB_USER,
+            Database_Connection::DB_PASSWORD
       );
     }
   }
 
   public static function get_all_email_users() {
-    Database::connect();
-    $stmt = Database::$db->prepare(Database::GET_ALL_EMAIL_USERS_SQL);
+      Database_Connection::connect();
+    $stmt = Database_Connection::$db->prepare(Database_Connection::GET_ALL_EMAIL_USERS_SQL);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  
+
   public static function insert_notification($sender_id, $sent_at, $number_of_subscribers, $subject, $body) {
-    Database::connect();
-    $stmt = Database::$db->prepare(Database::INSERT_NOTIFICATION_SQL);
+      Database_Connection::connect();
+    $stmt = Database_Connection::$db->prepare(Database_Connection::INSERT_NOTIFICATION_SQL);
     //binds values to the placeholders in the prepared SQL statement
     $stmt->bindParam(1, $sender_id);
     $stmt->bindParam(2, $sent_at);
@@ -50,4 +52,3 @@ class Database
 
 }
 
-?>
