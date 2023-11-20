@@ -63,6 +63,25 @@ body {
     background-repeat: no-repeat;
 }
 
+nav {
+    padding: .3em;
+    border: solid 1px dimgrey;
+    background-color: cadetblue;
+}
+nav ul li {
+    border: none;
+    border-radius: 0;
+}
+
+nav ul li a {
+    border: none;
+}
+
+.log_body {
+    background-color: 	rgb(212, 247, 224);
+    background-image: none;
+}
+
 main {
     max-width: 1000px;
     margin: 0 auto;
@@ -72,6 +91,10 @@ main {
     color: black;
     display: block;
     padding: 1em 2em 1em 2em;
+}
+
+.log_main {
+    color: dimgrey;
 }
 
 h1 {
@@ -148,6 +171,22 @@ p {
     font-size: 1em;
 }
 
+.log_button {
+    padding: .5em 1.5em;
+    text-align: center;
+    margin: 1em auto;
+    display: block;
+    max-width: 200px;
+    background-color: darkseagreen;
+    color: white;
+    font-size: 1em;
+}
+
+.log_button:active {
+    color: darkseagreen;
+    background-color: cornsilk;
+}
+
 .button:hover {
     background-color: rgb(0, 96, 115); 
 }
@@ -169,6 +208,11 @@ p {
 .split-1-4 {
     display: grid;
     grid-template-columns: 1fr 2fr;
+}
+
+.columns_4 {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
 }
 
 .split-1-4-1-4-1-1 {
@@ -201,20 +245,6 @@ li {
     text-align: center;
     color: darkgreen;
     background-color: white;
-}
-
-li:first-child {
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
-}
-
-li:last-child {
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
-}
-
-li:nth-child(3) {
-    background-color: cornsilk;
 }
 
 ul {
@@ -287,6 +317,10 @@ th:last-child, td:last-child {
 
 th:last-child {
     border-top-right-radius: 1em;
+}
+
+tr:last-child td:last-child {
+    border-bottom: 1px solid darkseagreen;
 }
 
 .selected td{

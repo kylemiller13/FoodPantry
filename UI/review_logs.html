@@ -13,19 +13,27 @@
     <script src="../Logic/logs.js"></script>
 </head>
 
-<body>
+<body class="log_body">
+    <nav>
+        <ul class="columns_4">
+            <li><a href="login.html">Login</a></li>
+            <li><a href="send_notification.html">Send Notifications</a></li>
+            <li><a href="template.html">Templates</a></li>
+            <li><a href="review_logs.html">Notification Logs</a></li>
+        </ul>
+    </nav>
     <h1>Message History</h1>
     <div>
         <form method="post" class="log_search">
             <div class="split-1-4-1-4-1-1">
                 <label for="start_date">Starting on:</label><input type="date" class="date_button" name="from" id="start_date">
                 <label>Ending on:</label><input type="date" class="date_button" id="end_date">
-                <input type="button" class="button" Value="Search" id="search_button">
-                <input type="button" class="button" Value="Show All" id="show_all_button">
+                <input type="button" class="log_button" Value="Search" id="search_button">
+                <input type="button" class="log_button" Value="Show All" id="show_all_button">
             </div>
 
         </form>
-        <main>
+        <main class="log_main">
 
             <div class="results">
                 <p id="dates_showing">Showing all</p>
