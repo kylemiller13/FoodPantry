@@ -50,7 +50,7 @@
             const formData = new FormData(form);
     
             const xhr = new XMLHttpRequest();
-            xhr.open("POST", "../Data/send_email.php", true);
+            xhr.open("POST", "../Data/email_notification_handler.php", true);
     
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
@@ -62,7 +62,7 @@
                         } else {
                             alert("Failed to send email");
                         }
-                        console.log(response);
+                        console.log(xhr);
                     }
                 }
             };

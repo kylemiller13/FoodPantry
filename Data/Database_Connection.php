@@ -1,7 +1,7 @@
 <?php
 
-namespace Data;
-use PDO;
+
+
 class Database_Connection
 {
   const DB_SERVER = "cisdbss.pcc.edu";
@@ -16,7 +16,7 @@ class Database_Connection
   private static function connect(){
     if(empty(Database_Connection::$db)){
         Database_Connection::$db = new PDO(
-        "sqlsrv:Server=" . Database_Connection::DB_SERVER . ";Database_Connection=" . Database_Connection::DB_DATABASE,
+        "sqlsrv:Server=" . Database_Connection::DB_SERVER . ";Database=" . Database_Connection::DB_DATABASE,
             Database_Connection::DB_USER,
             Database_Connection::DB_PASSWORD
       );
