@@ -1,6 +1,6 @@
 <?php
 require_once('headers.php');
-require_once('db-connection.php');
+require_once('Database.php');
 
 
 $json_data = file_get_contents("php://input");

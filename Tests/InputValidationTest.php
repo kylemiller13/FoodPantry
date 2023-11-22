@@ -1,11 +1,11 @@
 <?php
 
-require 'vendor/autoload.php';
-
-
-
 use PHPUnit\Framework\TestCase;
-use Data\services\PasswordValidator;
+
+
+include_once(__DIR__ . '/../Data/services/PasswordValidator.php'); // Include PasswordValidator
+
+use services\PasswordValidator;
 
 class InputValidationTest extends TestCase
 {

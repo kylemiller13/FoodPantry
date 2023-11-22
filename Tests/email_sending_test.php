@@ -1,7 +1,7 @@
 <?php
 
 require_once '../Data/send_email.php';
-require_once '../Data/Database_Connection.php';
+require_once '../Data/Database.php';
 
 use PHPUnit\Framework\TestCase;
 

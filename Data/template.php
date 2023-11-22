@@ -1,5 +1,5 @@
 <?php
-require("db-connection.php");
+
 class Template implements JsonSerializable {
     private $template_id;
     private $template_name;

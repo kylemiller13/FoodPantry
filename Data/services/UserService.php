@@ -2,18 +2,15 @@
 
 namespace services;
 
-use repositories\UserRepository;
-
-include_once(__DIR__ . '/../repositories/UserRepository.php');
+use Database;
 
 class UserService
 {
     private UserRepository $userRepository;
     private PasswordValidator $passwordValidator; // Dependency for password validation
 
-    public function __construct(UserRepository $userRepository, PasswordValidator $passwordValidator)
+    public function __construct(PasswordValidator $passwordValidator)
     {
-        $this->userRepository = $userRepository;
         $this->passwordValidator = $passwordValidator;
     }
 
@@ -31,7 +28,7 @@ class UserService
         }
 
         // Check for existing user
-        $existingUser = $this->userRepository->getUserByUsernameOrEmail($username, $email);
+        $existingUser = Database::getUserByUsernameOrEmail($username, $email);
         if ($existingUser) {
             return ["status" => "error", "message" => "Username or email already exists"];
         }
@@ -40,7 +37,7 @@ class UserService
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         // Create User
-        $result = $this->userRepository->createUser($username, $hashedPassword, $email);
+        $result = Database::createUser($username, $hashedPassword, $email);
 
         // Response Handling
         if ($result === false) {
@@ -57,7 +54,7 @@ class UserService
         }
 
         // Fetch User and Verify Password
-        $user = $this->userRepository->getUserByUsernameOrEmail($email_username, $email_username);
+        $user = Database::getUserByUsernameOrEmail($email_username, $email_username);
         if ($user && password_verify($password, $user['hashed_password'])) {
             // Successful login actions here (like setting session variables)
             return ["status" => "success", "message" => "Successfully logged in"];
