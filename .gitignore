@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-/vendor/
-=======
 ## Ignore the vendor folder
 #/vendor
 #
@@ -16,4 +13,5 @@
 #
 ## Ignore PHPUnit configuration file
 #phpunit.xml
->>>>>>> KM_feature_testing
+
+.idea/
