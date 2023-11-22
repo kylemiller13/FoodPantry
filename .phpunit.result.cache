@@ -1,1 +1,0 @@
-{"version":1,"defects":[],"times":{"email_sending_test::testSendEmailSuccess":2.668,"email_sending_test::testSendEmailFailure":1.975,"email_sending_test::testSendEmailWithEmptyReceiver":0,"email_sending_test::testSendEmailWithInvalidEmail":0,"email_sending_test::testSendEmailWithValidRecipient":2.573}}

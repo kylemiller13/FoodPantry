@@ -26,12 +26,14 @@ class UserRepository
                 ':hashedPassword' => $hashedPassword,
                 ':email' => $email,
                 ':role' => $role
+                // No need to manually insert 'created_at', SQL Server will set it automatically
             ]);
         } catch (Exception $e) {
             error_log('An error occurred: ' . $e->getMessage());
             return false;
         }
     }
+
 
     public function getUserByUsernameOrEmail($username, $email)
     {
