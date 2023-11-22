@@ -55,7 +55,7 @@ class Database {
         $statement->bindValue(':template_id', $template_id);
         $statement->execute();
 
-        
+
         if ($statement->rowCount() > 0) {
             return true;
         } else {
@@ -70,7 +70,7 @@ class Database {
         $getCountStatement->execute();
 
         $count = $getCountStatement->fetchColumn();
-    
+
         $query = "INSERT INTO EmailTemplate (id, name, message, notification_type) VALUES ($count + 1, :template_name, :template_content, :template_type)";
         $statement = self::$db->prepare($query);
         $statement->bindValue(':template_name', $template_name);

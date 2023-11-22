@@ -1,1 +1,0 @@
-{"version":1,"defects":[],"times":{"InputValidatorTest::testValidateMinLength":0,"InputValidatorTest::testValidateMaxLength":0,"InputValidatorTest::testValidateCharacterTypes":0,"InputValidatorTest::testValidateAgainstCommonPasswords":0,"InputValidatorTest::testValidateSequentialAndRepeatedCharacters":0}}
