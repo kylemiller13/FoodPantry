@@ -17,7 +17,7 @@ $feedbackStatus = '';
 $passwordValidator = new PasswordValidator();
 
 // Create an instance of UserService with dependencies
-$userService = new UserService($userRepository, $passwordValidator);
+$userService = new UserService($passwordValidator);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get data from the form

@@ -75,7 +75,7 @@ function create_table() {
                 }
             }
 
-            xhttp.open("GET", `../Data/fetch_logs.php?start_date=${start_date}&end_date=${end_date}`);
+            xhttp.open("GET", `fetch_logs.php?start_date=${start_date}&end_date=${end_date}`);
             xhttp.send();
     } else {
         document.getElementById("dates_showing").innerHTML = "Error: please enter a start date earlier than the end date.";

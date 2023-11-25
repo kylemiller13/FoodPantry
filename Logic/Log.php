@@ -1,7 +1,12 @@
 <?php
+
+namespace Logic;
+use Database;
+use JsonSerializable;
+
 /**
-* Class to represent individual Notification logs pulled from the database
-*/
+ * Class to represent individual Notification logs pulled from the database
+ */
 class Log implements JsonSerializable
 {
     private $subject;
@@ -10,8 +15,9 @@ class Log implements JsonSerializable
     private $time_sent;
     private $num_subs;
     private $body;
-    
-    public function __construct($log) {
+
+    public function __construct($log)
+    {
         $this->subject = $log["subject"];
         $this->username = $log["username"];
         $this->date_sent = $log["date"];
@@ -19,32 +25,39 @@ class Log implements JsonSerializable
         $this->num_subs = $log["number_of_subscribers"];
         $this->body = $log["body"];
     }
-    
-    public function get_subject() {
+
+    public function get_subject()
+    {
         return $this->subject;
     }
-    
-    public function get_username() {
+
+    public function get_username()
+    {
         return $this->username;
     }
-    
-    public function get_date_sent() {
+
+    public function get_date_sent()
+    {
         return $this->date_sent;
     }
-    
-    public function get_time_sent() {
+
+    public function get_time_sent()
+    {
         return $this->time_sent;
     }
-    
-    public function get_num_subs() {
+
+    public function get_num_subs()
+    {
         return $this->num_subs;
     }
-    
-    public function get_body() {
+
+    public function get_body()
+    {
         return $this->body;
     }
-    
-    public function jsonSerialize() {
+
+    public function jsonSerialize()
+    {
         return [
             "subject" => $this->subject,
             "username" => $this->username,
@@ -52,11 +65,12 @@ class Log implements JsonSerializable
             "time_sent" => $this->time_sent,
             "num_subs" => $this->num_subs,
             "body" => $this->body
-            
+
         ];
     }
 
-    public static function get_logs($start_date, $end_date) {
-        return Log_Database::get_logs($start_date, $end_date);
+    public static function get_logs($start_date, $end_date)
+    {
+        return Database::get_logs($start_date, $end_date);
     }
 }

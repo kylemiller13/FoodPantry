@@ -2,7 +2,7 @@
 
 // APIS
 
-const GET_TEMPLATE_API_ENDPOINT = "http://localhost/backend/fetch-templates.php";
+const GET_TEMPLATE_API_ENDPOINT = "../Data/fetch-templates.php";
 
 // DOM ELEMENTS
 const TEMPLATE_LIST = document.querySelector(".card-container");
@@ -51,7 +51,7 @@ const refetchTemplates = async () => {
         generateModal({
           title: "Edit template",
           callback: async formData => {
-            const response = await fetch("http://localhost/backend/update-template.php", {
+            const response = await fetch("../Data/update-template.php", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -72,7 +72,7 @@ const refetchTemplates = async () => {
       });
 
       deleteButton.addEventListener("click", async () => {
-        const response = await fetch("http://localhost/backend/delete-template.php", {
+        const response = await fetch("../Data/delete-template.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -97,7 +97,7 @@ CREATE_TEMPLATE_BUTTON.addEventListener("click", () => {
   generateModal({
     title: "Create template",
     callback: async formData => {
-      const response = await fetch("http://localhost/backend/create-template.php", {
+      const response = await fetch("../Data/create-template.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
