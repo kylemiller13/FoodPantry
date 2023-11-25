@@ -1,6 +1,6 @@
 <?php
 // Import required classes
-include_once(__DIR__ . '/../Data/repositories/UserRepository.php');
+include_once(__DIR__ . '/../Data/Database.php');
 include_once(__DIR__ . '/../Data/services/UserService.php');
 include_once(__DIR__ . '/../Data/services/PasswordValidator.php');
 

@@ -11,7 +11,7 @@ class UserService
     private UserRepository $userRepository;
     private PasswordValidator $passwordValidator; // Dependency for password validation
 
-    public function __construct(UserRepository $userRepository, PasswordValidator $passwordValidator)
+    public function __construct(PasswordValidator $passwordValidator)
     {
         $this->userRepository = $userRepository;
         $this->passwordValidator = $passwordValidator;

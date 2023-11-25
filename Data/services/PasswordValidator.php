@@ -1,6 +1,6 @@
 <?php
 
-namespace Data\services;
+namespace services;
 
 class PasswordValidator {
 

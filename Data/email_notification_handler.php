@@ -1,5 +1,5 @@
 <?php
-require_once 'Database_Connection.php';
+require_once 'Database.php';
 require_once 'send_email.php';
 
 $requestMethod = isset($_SERVER["REQUEST_METHOD"]) ? $_SERVER["REQUEST_METHOD"] : null;
@@ -7,8 +7,7 @@ $requestMethod = isset($_SERVER["REQUEST_METHOD"]) ? $_SERVER["REQUEST_METHOD"] 
 function processPostRequest() {
     $success = true;
 
-    $users = Database_Connection::get_all_email_users();
-
+    $users = Database;
     if ($users) {
         $subject = $_POST["subject"];
         $body = $_POST["body"];
@@ -23,7 +22,7 @@ function processPostRequest() {
             $sent_at = date('Y-m-d H:i:s');
             $number_of_subscribers = count($users);
 
-            if (Database_Connection::insert_notification($senderId, $sent_at, $number_of_subscribers, $subject, $body)) {
+            if (Database::insert_notification($senderId, $sent_at, $number_of_subscribers, $subject, $body)) {
                 echo "Email sent successfully!";
             } else {
                 echo "Failed to insert notification data.";

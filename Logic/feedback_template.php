@@ -5,8 +5,8 @@ $feedbackType = $feedbackType ?? '';
 $feedbackStatus = $feedbackStatus ?? '';
 
 // Define URLs for redirection or navigation
-$loginUrl = '../UI/login.html'; // Adjust if necessary
-$homeUrl = 'future_page.php'; // URL of the homepage or dashboard after login
+$loginUrl = '../UI/login.html';
+$homeUrl = '../UI/dashboard.html';
 
 // Start of HTML structure
 echo "<!DOCTYPE html>

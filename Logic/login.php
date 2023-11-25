@@ -1,20 +1,19 @@
 <?php
-// Import required classes
-include_once(__DIR__ . '/../Data/repositories/UserRepository.php');
+
+include_once(__DIR__ . '/../Data/Database.php');
 include_once(__DIR__ . '/../Data/services/UserService.php');
 include_once(__DIR__ . '/../Data/services/PasswordValidator.php'); // Include PasswordValidator
 
 use services\UserService;
 use services\PasswordValidator;
-use repositories\UserRepository;
 
 // Initialize variables for user feedback
 $feedback = "";
 $feedbackType = '';
 $feedbackStatus = '';
 
-// Create instances of UserRepository and PasswordValidator
-$userRepository = new UserRepository();
+// Create instances of PasswordValidator
+
 $passwordValidator = new PasswordValidator();
 
 // Create an instance of UserService with dependencies
