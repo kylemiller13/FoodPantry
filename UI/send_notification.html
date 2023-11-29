@@ -20,7 +20,9 @@
     </nav>
     <main>
         <h1>Send a Notification</h1>
-        <form method="post" action="../Data/send_email.php" onsubmit="submitForm(event)">
+        <form  id="notificationForm" method="post" action="../Data/send_email.php" onsubmit="submitForm(event)">
+            <label for="template">Select Template:</label>
+            <select id="template" name="template" onchange="loadTemplate()"></select>
             <label for="subject">Subject:</label>
             <input type="text" name="subject" id="subject" required> 
             <label for="body">Body:</label>
@@ -44,7 +46,7 @@
         });
 
         function submitForm(event) {
-            event.preventDefault(); // Prevent the default form submission
+            event.preventDefault(); 
     
             const form = event.target;
             const subject = document.getElementById('subject').value;
@@ -77,6 +79,53 @@
     
             xhr.send(formData);
         }
+         function loadTemplate() {
+             const templateSelect = document.getElementById('template');
+             const selectedTemplate = templateSelect.options[templateSelect.selectedIndex];
+
+             // Access the subject and body elements
+             const subjectField = document.getElementById('subject');
+             const bodyField = document.getElementById('body');
+
+             // Update the subject and body fields with the selected template values
+             subjectField.value = selectedTemplate.dataset.name || '';
+             bodyField.value = selectedTemplate.dataset.message || '';
+         }
+
+         // Fetch templates and populate the select element
+         async function fetchAndPopulateTemplates() {
+             const templateSelect = document.getElementById('template');
+
+             // Fetch templates
+             const response = await fetch("../Data/fetch-templates.php", {
+                 method: "GET",
+                 headers: {
+                     "Content-Type": "application/json",
+                 },
+                 mode: "cors",
+             });
+
+             if (response.ok || response.status === 200) {
+                 const data = await response.json();
+
+                 // Clear existing options
+                 templateSelect.innerHTML = "";
+
+                 // Populate the select element with template names
+                 data.forEach(template => {
+                     const option = document.createElement("option");
+                     option.value = template.name;
+                     option.textContent = template.name;
+                     // additional data
+                     option.dataset.name = template.name;
+                     option.dataset.message = template.message;
+                     templateSelect.appendChild(option);
+                 });
+             }
+         }
+
+         // Call function to fetch and populate templates when the page loads
+         document.addEventListener("DOMContentLoaded", fetchAndPopulateTemplates);
     </script>
     
 </body>

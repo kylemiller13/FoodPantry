@@ -1,5 +1,5 @@
 <?php
-require("Database.php");
+require_once("Database.php");
 class Template implements JsonSerializable {
     private $template_id;
     private $template_name;

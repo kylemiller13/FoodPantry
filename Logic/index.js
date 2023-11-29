@@ -40,6 +40,10 @@ const refetchTemplates = async () => {
             </div>
             `;
 
+      // Include subject and body properties in the dataset
+      templateCard.dataset.subject = template.subject; // Replace with your actual subject property
+      templateCard.dataset.body = template.body; // Replace with your actual body property
+
       TEMPLATE_LIST.appendChild(templateCard);
 
       // BIND ACTIONS
