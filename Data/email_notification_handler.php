@@ -5,17 +5,21 @@ require_once 'send_email.php';
 $requestMethod = isset($_SERVER["REQUEST_METHOD"]) ? $_SERVER["REQUEST_METHOD"] : null;
 
 function processPostRequest() {
-    $success = true;
+    $users = Database::get_all_email_users();
 
-    $users = Database;
     if ($users) {
         $subject = $_POST["subject"];
         $body = $_POST["body"];
         $senderId = 42;
 
-        foreach ($users as $user) {
-            $email = $user['email_address'];
+        $emailAddresses = array_column($users, 'email_address');
+        $success = true;
+
+        foreach ($emailAddresses as $email) {
             sendEmail($email, $subject, $body, $success);
+            if (!$success) {
+                break;
+            }
         }
 
         if ($success) {
