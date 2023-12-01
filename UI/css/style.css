@@ -154,6 +154,7 @@ input, textarea {
     padding: .5em .5em;
     resize: none;
     font-size: 1em;
+
 }
 
 p {
@@ -356,3 +357,50 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.templateBox{
+    padding-left: 1rem;
+}
+
+.subjectBox{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #d5d5d5;
+    padding-left: 1rem;
+}
+
+.subjectBox label{
+    margin-right: 10px;
+}
+
+#subject,
+#body{
+    width: 100%;
+    border: none;
+    padding: .5em .5em;
+    resize: none;
+    font-size: 1em;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+#body {
+    border-bottom: 1px solid #d5d5d5;
+    padding-left: 1rem;
+}
+
+#bodyLabel {
+    margin-left: 1rem;
+}
+
+#notificationForm {
+    border: 1px solid #d5d5d5;
+    max-width: 67rem;
+    background-color: #fff;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+

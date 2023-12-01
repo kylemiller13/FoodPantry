@@ -21,12 +21,16 @@
     <main>
         <h1>Send a Notification</h1>
         <form  id="notificationForm" method="post" action="../Data/send_email.php" onsubmit="submitForm(event)">
-            <label for="template">Select Template:</label>
-            <select id="template" name="template" onchange="loadTemplate()"></select>
-            <label for="subject">Subject:</label>
-            <input type="text" name="subject" id="subject" required> 
-            <label for="body">Body:</label>
-            <textarea name="body" class="body" rows="8" id="body" required></textarea> 
+            <div class="templateBox">
+                <label for="template">Select Template:</label>
+                <select id="template" name="template" onchange="loadTemplate()"></select>
+            </div>
+            <div class="subjectBox">
+                <label for="subject">Subject:</label>
+                <input type="text" name="subject" id="subject" required>
+            </div>
+            <label id="bodyLabel" for="body">Body:</label>
+            <textarea name="body" class="body" rows="15" id="body" placeholder="Type your notification message here" required ></textarea>
             <div class="split-1-1">
                 <input class="button" type="submit" value="Send"> 
                 <input class="button" type="button" value="Clear">
@@ -90,6 +94,8 @@
              // Update the subject and body fields with the selected template values
              subjectField.value = selectedTemplate.dataset.name || '';
              bodyField.value = selectedTemplate.dataset.message || '';
+             // Adjust the width of the select box based on the length of the selected template name
+             templateSelect.style.width = selectedTemplate.textContent.length * 10 + 'px';
          }
 
          // Fetch templates and populate the select element
