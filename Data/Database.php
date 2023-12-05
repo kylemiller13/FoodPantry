@@ -99,16 +99,17 @@ class Database
         return $templateList;
     }
 
-    public static function update_template($template_id, $template_name, $template_content, $template_type)
+    public static function update_template($template_id, $template_name, $template_content, $template_type, $template_subject)
     {
         self::connect();
 
-        $query = "UPDATE EmailTemplate SET name = :template_name, message = :template_content, notification_type = :template_type WHERE id = :template_id";
+        $query = "UPDATE EmailTemplate SET name = :template_name, message = :template_content, notification_type = :template_type, subject = :template_subject WHERE id = :template_id";
         $statement = self::$db->prepare($query);
         $statement->bindValue(':template_id', $template_id);
         $statement->bindValue(':template_name', $template_name);
         $statement->bindValue(':template_content', $template_content);
         $statement->bindValue(':template_type', $template_type);
+        $statement->bindValue(':template_subject', $template_subject);
         $statement->execute();
 
         if ($statement->rowCount() > 0) {
@@ -135,15 +136,16 @@ class Database
         }
     }
 
-    public static function create_template($template_name, $template_content, $template_type)
+    public static function create_template($template_name, $template_content, $template_type, $template_subject)
     {
         self::connect();
 
-        $query = "INSERT INTO EmailTemplate (name, message, notification_type) VALUES (:template_name, :template_content, :template_type)";
+        $query = "INSERT INTO EmailTemplate (name, message, notification_type, subject) VALUES (:template_name, :template_content, :template_type, :template_subject)";
         $statement = self::$db->prepare($query);
         $statement->bindValue(':template_name', $template_name);
         $statement->bindValue(':template_content', $template_content);
         $statement->bindValue(':template_type', $template_type);
+        $statement->bindValue(':template_subject', $template_subject);
         $statement->execute();
 
         $returnedQuery = "SELECT * FROM EmailTemplate WHERE id = SELECT SCOPE_IDENTITY();";

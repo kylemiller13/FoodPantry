@@ -1,15 +1,19 @@
 <?php
-require("Database.php");
+require_once("Database.php");
 class Template implements JsonSerializable {
     private $template_id;
     private $template_name;
     private $template_content;
     private $template_type;
+
+    private $template_subject;
     public function __construct($properties) {
         $this->template_id = $properties["id"];
         $this->template_content = $properties["message"];
         $this->template_name = $properties["name"];
         $this->template_type = $properties["notification_type"];
+        $this->template_subject = $properties["subject"];
+
     }
     public function jsonSerialize()
     {
@@ -18,7 +22,8 @@ class Template implements JsonSerializable {
             "id" => $this->template_id,
             "message" => $this->template_content,
             "name" => $this->template_name,
-            "notification_type" => $this->template_type
+            "notification_type" => $this->template_type,
+            "subject" => $this->template_subject
         ];
     }
 
@@ -38,6 +43,10 @@ class Template implements JsonSerializable {
         return $this->template_type;
     }
 
+    public function getSubject() {
+        return $this->template_subject;
+    }
+    
     public static function fetchTemplates() {
         return Database::get_all_templates();
     }
