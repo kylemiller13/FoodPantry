@@ -11,9 +11,10 @@ if ($data !== null) {
     $template_name = $data['template_name'];
     $template_content = $data['template_content'];
     $template_type = $data['template_type'];
+    $template_subject = $data['template_subject'];
     
 
-    Database::create_template($template_name, $template_content, $template_type);
+    Database::create_template($template_name, $template_content, $template_type, $template_subject);
 
     echo "success";
 } else {

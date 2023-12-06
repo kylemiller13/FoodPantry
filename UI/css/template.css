@@ -358,3 +358,13 @@ a {
 .form-submit {
   padding: 8px 16px;
 }
+
+.active {
+  background: black;
+}
+
+.template-message {
+  margin-top: 20px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
