@@ -7,20 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../UI/css/template.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
     <script src="../Logic/logs.js"></script>
 </head>
 
 <body class="log_body">
-    <nav>
-        <ul class="columns_4">
-            <li><a href="login.html">Login</a></li>
-            <li><a href="send_notification.html">Send Notifications</a></li>
-            <li><a href="template.html">Templates</a></li>
-            <li><a href="review_logs.html">Notification Logs</a></li>
-        </ul>
+    <nav class="header">
+        <div class="header__container">
+            <div class="header__left">
+                <div class="header__logo">
+                    <img height="32" width="32" src="https://img.icons8.com/stickers/100/street-food.png" alt="Food Pantry" />
+                </div>
+                <div class="nav-list">
+                    <a href="login.html" class="nav-list__item">Login</a>
+                    <a href="send_notification.html" class="nav-list__item">Send Notification</a>
+                    <a href="template.html" class="nav-list__item">Template Manager</a>
+                    <a href="review_logs.html" class="nav-list__item">Notification Logs</a>
+                </div>
+            </div>
+        </div>
     </nav>
     <h1>Message History</h1>
     <div>

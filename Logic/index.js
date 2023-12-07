@@ -7,7 +7,7 @@ import Youtube from "https://esm.sh/@tiptap/extension-youtube";
 import Image from "https://esm.sh/@tiptap/extension-image";
 import Link from "https://esm.sh/@tiptap/extension-link";
 
-const GET_TEMPLATE_API_ENDPOINT = "http://localhost/Data/fetch-templates.php";
+const GET_TEMPLATE_API_ENDPOINT = "../Data/fetch-templates.php";
 
 // DOM ELEMENTS
 const TEMPLATE_LIST = document.querySelector(".card-container");

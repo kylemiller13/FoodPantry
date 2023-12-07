@@ -7,16 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../UI/css/template.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-    <nav>
-        <ul class="columns_4">
-            <li><a href="login.html">Login</a></li>
-            <li><a href="send_notification.html">Send Notifications</a></li>
-            <li><a href="template.html">Templates</a></li>
-            <li><a href="review_logs.html">Notification Logs</a></li>
-        </ul>
+    <nav class="header">
+        <div class="header__container">
+            <div class="header__left">
+                <div class="header__logo">
+                    <img height="32" width="32" src="https://img.icons8.com/stickers/100/street-food.png" alt="Food Pantry" />
+                </div>
+                <div class="nav-list">
+                    <a href="login.html" class="nav-list__item">Login</a>
+                    <a href="send_notification.html" class="nav-list__item">Send Notification</a>
+                    <a href="template.html" class="nav-list__item">Template Manager</a>
+                    <a href="review_logs.html" class="nav-list__item">Notification Logs</a>
+                </div>
+            </div>
+        </div>
     </nav>
     <main>
         <h1>Send a Notification</h1>
@@ -92,8 +103,8 @@
             const bodyField = document.getElementById('body');
 
              // Update the subject and body fields with the selected template values
-            subjectField.value = selectedTemplate.dataset.name || '';
-            bodyField.value = selectedTemplate.dataset.message || '';
+            subjectField.value = selectedTemplate.dataset.subject || '';
+            bodyField.innerText = selectedTemplate.dataset.message || '';
              // Adjust the width of the select box based on the length of the selected template name
              templateSelect.style.width = selectedTemplate.textContent.length * 10 + 'px';
         }
@@ -120,10 +131,10 @@
                  // Populate the select element with template names
                 data.forEach(template => {
                     const option = document.createElement("option");
-                    option.value = template.name;
+                    option.value = template.subject;
                     option.textContent = template.name;
                     // additional data
-                    option.dataset.name = template.name;
+                    option.dataset.subject = template.subject;
                     option.dataset.message = template.message;
                     templateSelect.appendChild(option);
                 });
