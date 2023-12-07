@@ -96,7 +96,7 @@ a {
 /* START HEADER CSS */
 
 .header {
-  background-color: #d1fae5;
+  background-color: #008099;
 }
 
 .container {
@@ -173,6 +173,10 @@ a {
   background-color: rgb(17 24 39);
 }
 
+.nav-active {
+  background-color: white;
+  color: black;
+}
 /* END HEADER CSS */
 
 /* START MAIN CSS */
@@ -283,8 +287,9 @@ a {
   transform: translate(-50%, -50%);
   z-index: 1000;
   width: 700px;
-  max-height: 100%;
+  max-height: 700px;
   overflow: hidden;
+  overflow-y: scroll;
   outline: 0;
   background-color: white;
   padding: 16px;
@@ -367,4 +372,14 @@ a {
   margin-top: 20px;
   border: 1px solid black;
   border-radius: 4px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 16px 0;
+  background-color: #008099;
+  color: white;
 }
