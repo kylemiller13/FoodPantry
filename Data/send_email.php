@@ -9,8 +9,10 @@ function sendEmail($to, $subject, $body, &$success) {
         return;
     }
 
+    $sender[] = 'MIME-Version: 1.0';
+    $sender[] = 'Content-type: text/html; charset=iso-8859-1';
     // Send the email without the Bcc header
-    if (mail($to, $subject, $body, $sender)) {
+    if (mail($to, $subject, $body, implode("\r\n", $sender))) {
         // Log the email details
         $logMessage = "To: $to, Subject: $subject, Body: $body";
         error_log($logMessage);

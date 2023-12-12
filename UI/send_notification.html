@@ -1,151 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Send a Notification</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../UI/css/template.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="header">
-        <div class="header__container">
-            <div class="header__left">
-                <div class="header__logo">
-                    <img height="32" width="32" src="https://img.icons8.com/stickers/100/street-food.png" alt="Food Pantry" />
-                </div>
-                <div class="nav-list">
-                    <a href="login.html" class="nav-list__item">Login</a>
-                    <a href="send_notification.html" class="nav-list__item">Send Notification</a>
-                    <a href="template.html" class="nav-list__item">Template Manager</a>
-                    <a href="review_logs.html" class="nav-list__item">Notification Logs</a>
-                </div>
-            </div>
+      <div class="header__container">
+        <div class="header__left">
+          <div class="header__logo">
+            <img height="32" width="32" src="https://img.icons8.com/stickers/100/street-food.png" alt="Food Pantry" />
+          </div>
+          <div class="nav-list">
+            <a href="login.html" class="nav-list__item">Login</a>
+            <a href="send_notification.html" class="nav-list__item">Send Notification</a>
+            <a href="template.html" class="nav-list__item">Template Manager</a>
+            <a href="review_logs.html" class="nav-list__item">Notification Logs</a>
+          </div>
         </div>
+      </div>
     </nav>
     <main>
-        <h1>Send a Notification</h1>
-        <form  id="notificationForm" method="post" action="../Data/send_email.php" onsubmit="submitForm(event)">
-            <div class="templateBox">
-                <label for="template">Select Template:</label>
-                <select id="template" name="template" onchange="loadTemplate()"></select>
-            </div>
-            <div class="subjectBox">
-                <label for="subject">Subject:</label>
-                <input type="text" name="subject" id="subject" required>
-            </div>
-            <label id="bodyLabel" for="body">Body:</label>
-            <textarea name="body" class="body" rows="15" id="body" placeholder="Type your notification message here" required ></textarea>
-            <div class="split-1-1">
-                <input class="button" type="submit" value="Send Notification">
-                <input class="button" type="button" value="Clear">
-            </div>
-        </form>
+      <h1>Send a Notification</h1>
+      <form id="notificationForm" method="post" action="../Data/send_email.php" onsubmit="submitForm(event)">
+        <div class="templateBox">
+          <label for="template">Select Template:</label>
+          <select id="template" name="template"></select>
+        </div>
+        <div class="subjectBox">
+          <label for="subject">Subject:</label>
+          <input type="text" name="subject" id="subject" required />
+        </div>
+        <label id="bodyLabel" for="body">Body:</label>
+        <div class="tooltip"></div>
+        <div id="body"></div>
+        <div class="split-1-1">
+          <input class="button" type="submit" value="Send Notification" />
+          <input class="button" type="button" value="Clear" />
+        </div>
+      </form>
     </main>
     <footer>
-        <h3>Copyright &copy; 2023 Portland Community College </h3>
-        <img src="./images/favicon.ico" alt="PCC Logo" width="50" height="50">
+      <h3>Copyright &copy; 2023 Portland Community College</h3>
+      <img src="./images/favicon.ico" alt="PCC Logo" width="50" height="50" />
     </footer>
-    <script>
-         // Add an event listener to the "Clear" button
-        const clearButton = document.querySelector('.button[value="Clear"]');
-        clearButton.addEventListener('click', function () {
-            document.getElementById('subject').value = ''; // Clear the subject field
-            document.getElementById('body').value = ''; // Clear the body field
+    <script type="module">
+      import { Editor } from "https://esm.sh/@tiptap/core";
+      import StarterKit from "https://esm.sh/@tiptap/starter-kit";
+      import Youtube from "https://esm.sh/@tiptap/extension-youtube";
+      import Image from "https://esm.sh/@tiptap/extension-image";
+      import Link from "https://esm.sh/@tiptap/extension-link";
+
+      const editor = new Editor({
+        element: document.getElementById("body"),
+        extensions: [
+          StarterKit,
+          Youtube.configure({ controls: false }),
+          Image,
+          Link.configure({
+            validate: href => /^https?:\/\//.test(href),
+          }),
+        ],
+        content: "",
+      });
+
+      const tooltip = document.querySelector(".tooltip");
+
+      tooltip.innerHTML = `
+  <button class="h1-button">
+        H1
+      </button>
+      <button class="h2-button">
+      H2
+    </button>
+    <button class="h3-button">
+      H3
+    </button>
+    <button class="paragraph-button">
+      P
+    </button>
+    <button class="bold-button">
+      Bold
+    </button>
+    <button class="italic-button">
+    Italic
+  </button>
+  <button class="strike-button">
+    Strike
+  </button>
+  <button class="bulletlist-button">
+    Bullet list
+  </button>
+  <button class="orderedlist-button">
+  Ordered list
+  </button>
+  <button class="youtube-button">
+  Youtube
+  </button>
+  <button class="image-button">
+  Image
+  </button>
+  <button class="link-button">
+  Link
+  </button>
+      `;
+
+      const h1Button = document.querySelector(".h1-button");
+      const h2Button = document.querySelector(".h2-button");
+      const h3Button = document.querySelector(".h3-button");
+      const paragraphButton = document.querySelector(".paragraph-button");
+      const boldButton = document.querySelector(".bold-button");
+      const italicButton = document.querySelector(".italic-button");
+      const strikeButton = document.querySelector(".strike-button");
+      const bulletListButton = document.querySelector(".bulletlist-button");
+      const orderedListButton = document.querySelector(".orderedlist-button");
+      const youtubeButton = document.querySelector(".youtube-button");
+      const imageButton = document.querySelector(".image-button");
+      const linkButton = document.querySelector(".link-button");
+
+      // initialize the editor
+
+      h1Button.addEventListener("click", event => {
+        event.preventDefault();
+        editor.chain().focus().toggleHeading({ level: 1 }).run();
+        h1Button.className = editor.isActive("heading", { level: 1 }) ? "h1-button active" : "h1-button";
+      });
+
+      h2Button.addEventListener("click", event => {
+        event.preventDefault();
+        editor.chain().focus().toggleHeading({ level: 2 }).run();
+        h2Button.className = editor.isActive("heading", { level: 2 }) ? "h2-button active" : "h2-button";
+      });
+
+      h3Button.addEventListener("click", event => {
+        event.preventDefault();
+        editor.chain().focus().toggleHeading({ level: 3 }).run();
+        h3Button.className = editor.isActive("heading", { level: 3 }) ? "h3-button active" : "h3-button";
+      });
+
+      paragraphButton.addEventListener("click", event => {
+        event.preventDefault();
+        editor.chain().focus().setParagraph().run();
+        paragraphButton.className = editor.isActive("paragraph") ? "paragraph-button active" : "paragraph-button";
+      });
+
+      boldButton.addEventListener("click", event => {
+        event.preventDefault();
+        editor.chain().focus().toggleBold().run();
+        boldButton.className = editor.isActive("bold") ? "bold-button active" : "bold-button";
+      });
+
+      italicButton.addEventListener("click", event => {
+        event.preventDefault();
+        editor.chain().focus().toggleItalic().run();
+        italicButton.className = editor.isActive("italic") ? "italic-button active" : "italic-button";
+      });
+
+      strikeButton.addEventListener("click", event => {
+        event.preventDefault();
+        editor.chain().focus().toggleStrike().run();
+        strikeButton.className = editor.isActive("strike") ? "strike-button active" : "strike-button";
+      });
+
+      bulletListButton.addEventListener("click", event => {
+        event.preventDefault();
+        editor.chain().focus().toggleBulletList().run();
+        bulletListButton.className = editor.isActive("bulletList") ? "bulletlist-button active" : "bulletlist-button";
+      });
+
+      orderedListButton.addEventListener("click", event => {
+        event.preventDefault();
+        editor.chain().focus().toggleOrderedList().run();
+        orderedListButton.className = editor.isActive("orderedList") ? "orderedlist-button active" : "orderedlist-button";
+      });
+
+      youtubeButton.addEventListener("click", event => {
+        event.preventDefault();
+
+        const youtubeUrl = prompt("Enter youtube url");
+
+        if (youtubeUrl) {
+          editor.commands.setYoutubeVideo({
+            src: youtubeUrl,
+            width: 560,
+            height: 315,
+          });
+        }
+      });
+
+      imageButton.addEventListener("click", event => {
+        event.preventDefault();
+
+        const imageUrl = prompt("Enter image url");
+
+        if (imageUrl) {
+          editor.commands.setImage({
+            src: imageUrl,
+          });
+        }
+      });
+
+      linkButton.addEventListener("click", event => {
+        event.preventDefault();
+
+        if (editor.getAttributes("link").href) {
+          editor.commands.unsetLink();
+          return;
+        }
+
+        const linkUrl = prompt("Enter link url");
+
+        editor.commands.toggleLink({ href: linkUrl, target: "_blank" });
+      });
+
+      // Add an event listener to the "Clear" button
+      const clearButton = document.querySelector('.button[value="Clear"]');
+      clearButton.addEventListener("click", function () {
+        document.getElementById("subject").value = ""; // Clear the subject field
+        editor.commands.clearContent(true); // Clear the body field
+      });
+
+      function submitForm(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const subject = document.getElementById("subject").value;
+        const body = `<html><body>${editor.getHTML()}</body></html>`;
+
+        if (subject.trim() === "" || body === "") {
+          alert("Please fill out both Subject and Body fields before sending the email.");
+          return;
+        }
+
+        const formData = new FormData(form);
+        formData.append("body", body);
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "../Data/email_notification_handler.php", true);
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              const response = xhr.responseText;
+
+              if (response.trim() === "Email sent successfully!") {
+                alert("Email sent successfully!");
+              } else {
+                alert("Failed to send email");
+              }
+              console.log(xhr);
+            }
+          }
+        };
+
+        xhr.send(formData);
+      }
+      function loadTemplate() {
+        const templateSelect = document.getElementById("template");
+        const selectedTemplate = templateSelect.options[templateSelect.selectedIndex];
+
+        // Access the subject and body elements
+        const subjectField = document.getElementById("subject");
+        const bodyField = document.getElementById("body");
+
+        // Update the subject and body fields with the selected template values
+        subjectField.value = selectedTemplate.dataset.subject || "";
+        editor.commands.setContent(selectedTemplate.dataset.message || "");
+        // Adjust the width of the select box based on the length of the selected template name
+        templateSelect.style.width = selectedTemplate.textContent.length * 10 + "px";
+      }
+
+      // Fetch templates and populate the select element
+      async function fetchAndPopulateTemplates() {
+        const templateSelect = document.getElementById("template");
+
+        // Fetch templates
+        const response = await fetch("../Data/fetch-templates.php", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          mode: "cors",
         });
 
-        function submitForm(event) {
-            event.preventDefault();
-    
-            const form = event.target;
-            const subject = document.getElementById('subject').value;
-            const body = document.getElementById('body').value;
-            
-            if (subject.trim() === '' || body.trim() === '') {
-                alert("Please fill out both Subject and Body fields before sending the email.");
-                return;
-            }
+        if (response.ok || response.status === 200) {
+          const data = await response.json();
 
-            const formData = new FormData(form);
-    
-            const xhr = new XMLHttpRequest();
-            xhr.open("POST", "../Data/email_notification_handler.php", true);
-    
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        const response = xhr.responseText;
-    
-                        if (response.trim() === "Email sent successfully!") {
-                            alert("Email sent successfully!");
-                        } else {
-                            alert("Failed to send email");
-                        }
-                        console.log(xhr);
-                    }
-                }
-            };
-    
-            xhr.send(formData);
+          // Clear existing options
+          templateSelect.innerHTML = "";
+
+          // Populate the select element with template names
+          data.forEach(template => {
+            const option = document.createElement("option");
+            option.value = template.subject;
+            option.textContent = template.name;
+            // additional data
+            option.dataset.subject = template.subject;
+            option.dataset.message = template.message;
+            templateSelect.appendChild(option);
+          });
         }
-        function loadTemplate() {
-            const templateSelect = document.getElementById('template');
-            const selectedTemplate = templateSelect.options[templateSelect.selectedIndex];
+      }
 
-             // Access the subject and body elements
-            const subjectField = document.getElementById('subject');
-            const bodyField = document.getElementById('body');
+      // select change event
+      document.getElementById("template").addEventListener("change", loadTemplate);
 
-             // Update the subject and body fields with the selected template values
-            subjectField.value = selectedTemplate.dataset.subject || '';
-            bodyField.innerText = selectedTemplate.dataset.message || '';
-             // Adjust the width of the select box based on the length of the selected template name
-             templateSelect.style.width = selectedTemplate.textContent.length * 10 + 'px';
-        }
-
-         // Fetch templates and populate the select element
-        async function fetchAndPopulateTemplates() {
-            const templateSelect = document.getElementById('template');
-
-             // Fetch templates
-            const response = await fetch("../Data/fetch-templates.php", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                mode: "cors",
-            });
-
-            if (response.ok || response.status === 200) {
-                const data = await response.json();
-
-                 // Clear existing options
-                templateSelect.innerHTML = "";
-
-                 // Populate the select element with template names
-                data.forEach(template => {
-                    const option = document.createElement("option");
-                    option.value = template.subject;
-                    option.textContent = template.name;
-                    // additional data
-                    option.dataset.subject = template.subject;
-                    option.dataset.message = template.message;
-                    templateSelect.appendChild(option);
-                });
-            }
-        }
-
-         // Call function to fetch and populate templates when the page loads
-        document.addEventListener("DOMContentLoaded", fetchAndPopulateTemplates);
+      // Call function to fetch and populate templates when the page loads
+      document.addEventListener("DOMContentLoaded", fetchAndPopulateTemplates);
     </script>
-    
-</body>
-
-
+  </body>
 </html>

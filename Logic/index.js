@@ -1,11 +1,10 @@
 // core
-
-// APIS
 import { Editor } from "https://esm.sh/@tiptap/core";
 import StarterKit from "https://esm.sh/@tiptap/starter-kit";
 import Youtube from "https://esm.sh/@tiptap/extension-youtube";
 import Image from "https://esm.sh/@tiptap/extension-image";
 import Link from "https://esm.sh/@tiptap/extension-link";
+// APIS
 
 const GET_TEMPLATE_API_ENDPOINT = "../Data/fetch-templates.php";
 
@@ -295,7 +294,6 @@ const generateModal = ({ title, callback, defaultValues }) => {
   const youtubeButton = document.querySelector(".youtube-button");
   const imageButton = document.querySelector(".image-button");
   const linkButton = document.querySelector(".link-button");
-  const removeLinkButton = document.querySelector(".remove-link-button");
 
   h1Button.addEventListener("click", event => {
     event.preventDefault();
