@@ -235,8 +235,9 @@
         const subject = document.getElementById("subject").value;
         const body = `<html><body>${editor.getHTML()}</body></html>`;
 
-        if (subject.trim() === "" || body === "") {
-          alert("Please fill out both Subject and Body fields before sending the email.");
+        const bodyContent = editor.getHTML().replace(/<\/?[^>]+(>|$)/g, '');
+        if (subject.trim() === "" || bodyContent.trim()=== "") {
+          alert("Please fill Body field before sending the email.");
           return;
         }
 
