@@ -141,10 +141,17 @@ main {
 body {
   /* background-color: 	rgb(212, 247, 224); */
   /* background-color: rgb(213,213,213); */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: "Roboto", sans-serif;
   background-image: url("../images/pawprints-teal.png");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+main {
+  flex: 1;
 }
 
 nav {
@@ -434,8 +441,6 @@ footer {
   color: white !important;
   text-align: center;
   padding: 1em;
-  position: fixed;
-  bottom: 0;
   width: 100%;
 }
 
