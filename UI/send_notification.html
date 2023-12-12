@@ -228,7 +228,7 @@
         editor.commands.clearContent(true); // Clear the body field
       });
 
-      function submitForm(event) {
+      window.submitForm = function(event) {
         event.preventDefault();
 
         const form = event.target;
