@@ -1,6 +1,6 @@
 # PCC Food Pantry
 
-#### By Kyle Miller
+#### By Kyle Miller, Noah Jaeger,  Nhat Huy Le, Cesar
 
 #### A notification system with full CRUD functionality for students at Portland Community College to inform them about ongoing specials.
 
